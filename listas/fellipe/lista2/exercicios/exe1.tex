@@ -1,0 +1,44 @@
+\section*{Exercício 1}
+Para cada exemplo vamos aplicar as seguintes simplificações:
+\begin{itemize}
+  \item{Substituição da notação assintótica por uma função de classe}
+  \item{Restrição de $n$ para uma potência de 2}
+  \item{Estipulação do caso base como $T(n) = 1$}
+\end{itemize}
+\subsection*{A}
+\begin{equation}
+  \begin{aligned}
+      T(n) &= 2T(\floor{\frac{n}{2}}) + \Theta(n^2) \\
+    &= 2T(\frac{n}{2}) + n^2  && \text{k = 1}\\
+    &= 2(2T(\frac{n}{4}) + (\frac{n}{2})^2) + n^2\\
+    &= 4T(\frac{n}{4}) + 2(\frac{n^2}{2^2}) + n^2 \\
+    &= 4T(\frac{n}{4}) + \frac{n^2}{2} + n^2 \\
+    &= 4T(\frac{n}{4}) + \frac{3n^2}{2}  && \text{k = 2}\\
+    &= 4(2T(\frac{n}{8}) + (\frac{n}{4})^2) + \frac{3n^2}{2}\\
+    &= 8T(\frac{n}{8}) + 4(\frac{n^2}{4^2}) + \frac{3n^2}{2} \\
+    &= 8T(\frac{n}{8}) + \frac{n^2}{4} + \frac{3n^2}{2} \\
+    &= 8T(\frac{n}{8}) + \frac{7n^2}{4}  && \text{k = 3}\\
+    &= 8T(2T(\frac{n}{16}) + (\frac{n}{8})^2) + \frac{7n^2}{4}\\
+    &= 16T(\frac{n}{16}) + 8(\frac{n^2}{8^2}) + \frac{7n^2}{4}\\
+    &= 16T(\frac{n}{16}) + \frac{n^2}{8} + \frac{7n^2}{4}\\
+    &= 16T(\frac{n}{16}) + \frac{n^2 + 14n^2}{8}\\
+    &= 16T(\frac{n}{16}) + \frac{15n^2}{8} && \text{k = 4}\\
+    \vdots \\
+    &= (2^k)T(\frac{n}{(2^k)}) + \frac{(2^k - 1)n^2}{2^{(k-1)}} \text{, considerando $k = \lg n$ temos} \\
+    &= (\lg n)T(\frac{n}{(2^{\lg n})}) + \frac{(2^{\lg n} - 1)n^2}{2^{(\lg n - 1)}} \\
+    &= (\lg n)T(\frac{n}{n}) + \frac{(n - 1)n^2}{\frac{n}{2}} = (\lg n)T(1) + \frac{2(n - 1)n^2}{n}\\
+    &= \lg n + 2(n - 1)n = \lg n + 2n^2 - 2n = \Theta (n^2)\\
+  \end{aligned}
+\end{equation}
+\newpage
+\subsection*{D}
+\begin{equation}
+  \begin{aligned}
+    T(n) &= 7T(\floor{\frac{n}{3}}) + \Theta(n^2) \\
+    &= 7T(\frac{n}{3}) + n^2  && \text{k = 1} \\
+    &= 7(7(T\frac{n}{9}) + (\frac{n}{3})^2) + n^2 = (7^2)T(\frac{n}{9}) + \frac{7n^2}{9} + n^2 = (7^2)T(\frac{n}{9}) + \frac{7n^2 + 9n^2}{9} \\
+    &= (7^2)T(\frac{n}{9}) + \frac{16n^2}{9} && \text{k = 2} \\
+    &= (7^2)(7T(\frac{n}{27}) + (\frac{n}{9})^2) + \frac{16n^2}{9}  = (7^3)T(\frac{n}{27}) + \frac{(7^2)n^2}{81} + \frac{16n^2}{9} = (7^3)T(\frac{n}{27}) + \frac{49n^2 + 144n^2}{81} \\
+    &= (7^3)T(\frac{n}{27}) + \frac{193n^2}{81} \text{k = 3}\\
+  \end{aligned}
+\end{equation}
