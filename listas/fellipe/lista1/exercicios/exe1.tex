@@ -1,62 +1,62 @@
 \section*{Exercício 1}
   Podemos definir a notação assintótica utilizando o conceito de limite. Seja $f(n)$ e $g(n)$ duas funções em $\setR$. Partindo da hipótese que todos limites a seguir existem, temos que:
 
-  \begin{equation}
+  \begin{equation*}
     \setlength{\jot}{10pt}
     \begin{aligned}
       f(n) = \bigO(g(n)) \equiv \exists\:c \in \setR: \lim_{n \to\infty} \frac{f(n)}{g(n)} = c,\: c \geq0
     \end{aligned}\tag{$D_1$}
-  \end{equation}
+  \end{equation*}
   \begin{itemize}
     \item{se $c = 0$ então podemos concluir que $f(n) \text{ é } \bigO(g(n))$}
     \item{se $c > 0$ então não podemos concluir nada}
   \end{itemize}
 
-  \begin{equation}
+  \begin{equation*}
     \setlength{\jot}{10pt}
     \begin{aligned}
       f(n) = \Omega(g(n)) \equiv \lim_{n \to\infty} \frac{f(n)}{g(n)} = c,\: 0 < c \leq \infty
     \end{aligned}\tag{$D_2$}
-  \end{equation}
+  \end{equation*}
   \begin{itemize}
     \item{se $c = \infty$ então podemos concluir que $f(n) \text{ é } \Omega(g(n))$}
-    \item{se $0 < c \leq \infty$ então concluir que  $f(n) \text{ é } \Theta(g(n))$}
+    \item{se $0 < c \leq \infty$ então concluímos que  $f(n) \text{ é } \Theta(g(n))$}
   \end{itemize}
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \newpage
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   \subsection*{(a) $3^n \text{ não é } \bigO(2^n)$}
   R:
-  \begin{equation}
+  \begin{equation*}
     \setlength{\jot}{10pt}
     \begin{aligned}
     &\lim_{n \to\infty} \frac{f(n)}{g(n)} = \lim_{n \to\infty} \frac{3^n}{2^n} = \lim_{n \to\infty} \left(\frac{3}{2}\right)^n \text{, como } \left(\frac{3}{2}\right) > 1 \text{ então } \\
     &= \lim_{n \to\infty} \left(\frac{3}{2}\right)^n = \infty \\
     &\therefore\: 3^n \text{ não é } \bigO(2^n) \text{, } 3^n \text{ é } \Omega(2^n)
-  \end{aligned}\end{equation}
+  \end{aligned}\end{equation*}
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   \subsection*{(b) $\log_{10} n \text{ é } \bigO(\lg n)$}
   R:
-  \begin{equation}
+  \begin{equation*}
     \setlength{\jot}{10pt}
     \begin{aligned}
     &\lim_{n \to\infty} \frac{f(n)}{g(n)} = \lim_{n \to\infty} \frac{\log_{10} n}{\lg n} \text{, usando L'Hospital para calcular o limite temos} \\
     &\lim_{n \to\infty} \frac{(\log_{10} n)'}{(\lg n)'} = \lim_{n \to\infty} \left(\frac{1}{n \ln 10}\right) \left(\frac{n \ln 2}{1}\right) = \lim_{n \to\infty} \left(\frac{\cancel{n} \ln 2}{\cancel{n} \ln 10}\right) = \lim_{n \to\infty} \left(\frac{\ln 2}{\ln 10}\right) = \log_{10} 2 \neq 0 \text{ e } \neq \infty \\
     &\therefore\: \log_{10} n \text{ é } \Theta(\lg n) \text{, por consequência } \log_{10} n \text{ é } \bigO(\lg n)
-  \end{aligned}\end{equation}
+  \end{aligned}\end{equation*}
 
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   \subsection*{(c) $\lg n \text{ é } \bigO(\log_{10} n)$}
   R:
-  \begin{equation}
+  \begin{equation*}
     \setlength{\jot}{10pt}
     \begin{aligned}
     &\lim_{n \to\infty} \frac{f(n)}{g(n)} = \lim_{n \to\infty} \frac{\lg n}{\log_{10} n} \text{, usando L'Hospital para calcular o limite temos} \\
     &\lim_{n \to\infty} \frac{(\lg n)'}{(\log_{10} n)'} = \lim_{n \to\infty} \left(\frac{n \ln 10}{1}\right) \left(\frac{1}{n \ln 2}\right) = \lim_{n \to\infty} \left(\frac{\cancel{n} \ln 10}{\cancel{n} \ln 2}\right) = \lim_{n \to\infty} \left(\frac{\ln 10}{\ln 2}\right) = \log_{2} 10 \neq 0 \text{ e } \neq \infty \\
     &\therefore\: \lg n \text{ é } \Theta(\log_{10} n) \text{, por consequência } \lg n \text{ é } \bigO(\log_{10} n)
-  \end{aligned}\end{equation}
+  \end{aligned}\end{equation*}

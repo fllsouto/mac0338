@@ -1,0 +1,35 @@
+\section*{Exercício 4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{(a) $\sum^{n}_{i=1} i^k \text{ é } \Theta(n^{k + 1})$}
+
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &\sum^{n}_{i=1} i^k = 1^k + 2^k \dots + n^k \leq n^k + n^k \dots + n^k = n*n^k = n^{k+1} \\
+    &\text{Logo, para $c_1 = 1$ e $n_1 = 1$ temos que } \sum^{n}_{i=1} i^k = \bigO(n^{k+1}) \\
+    &\sum^{n}_{i=1} i^k = 1^k + 2^k + \dots + (n-2)^k + (n-1)^k + n^k \geq (n-\frac{n}{2})^k + (n-\frac{n}{2}+1)^k + \dots + n^k = \\
+    &(\frac{2n-n}{2})^k + (\frac{2n-n+2}{2})^k + \dots + (\frac{2n}{2})^k = (\frac{n}{2})^k + (\frac{n+2}{2})^k + \dots + (\frac{2n}{2})^k \geq \\
+    &(\frac{n}{2})^k + (\frac{n}{2})^k + \dots + (\frac{n}{2})^k = (\frac{n}{2})*(\frac{n}{2})^k = (\frac{n}{2})^{k+1} = (\frac{1}{2})^{k+1}*(n^{k+1}) \\
+    &\text{Logo, para $c_2 = (\frac{1}{2})^{k+1}$ e $n_2 = 1$ temos que } \sum^{n}_{i=1} i^k = \Omega(n^{k+1}) \\
+    &\therefore \sum^{n}_{i=1} i^k = \Theta(n^{k + 1})
+\end{aligned}\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{(a) $\sum^{n}_{i=1} \frac{i}{2^i} \leq 2$}
+
+Vamos considerar a série infinita:
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &S_\infty = \sum^{\infty}_{i=1} \frac{i}{2^i} = \frac{1}{2} + \frac{2}{4} + \frac{3}{8} + \frac{4}{16} \dots \text{ , vamos dividir por 2} \\
+    &\Rightarrow \frac{S_\infty}{2} = \frac{1}{4} + \frac{2}{8} + \frac{3}{16} + \frac{4}{32} \dots \text{ , subtraindo temos } \\
+    &S_\infty - \frac{S_\infty}{2} = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \frac{1}{16} \dots \Rightarrow \frac{S_\infty}{2} = \sum^{\infty}_{i=1} \frac{1}{2^i} = \sum^{\infty}_{i=1} (\frac{1}{2})^i = \frac{\frac{1}{2}}{1-\frac{1}{2}} = 1 \Rightarrow S_\infty = 2 \\
+  \end{aligned}\end{equation*}
+  Dessa forma, como todos os termos da soma infinita acima são positivos, podemos afirmar que, para qualquer valor de n, a soma finita assume valores estritamente menores que a soma infinita:
+  \begin{equation*}
+    \setlength{\jot}{10pt}
+    \begin{aligned}
+      \sum^{n}_{i=1} \frac{i}{2^i} < \sum^{\infty}_{i=1} \frac{i}{2^i} = 2 \therefore \sum^{n}_{i=1} \frac{i}{2^i} \leq 2
+\end{aligned}\end{equation*}

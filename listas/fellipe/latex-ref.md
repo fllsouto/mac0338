@@ -8,3 +8,4 @@
 - https://tex.stackexchange.com/questions/38868/big-parenthesis-in-an-equation
 - https://tex.stackexchange.com/questions/75525/how-to-write-crossed-out-math-in-latex
 - https://tex.stackexchange.com/questions/223994/add-vertical-space-between-equations
+- http://www.tutorbrasil.com.br/forum/viewtopic.php?t=5813

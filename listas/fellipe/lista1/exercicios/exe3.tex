@@ -1,0 +1,66 @@
+\section*{Exercício 3}
+
+\subsection*{(a) $\lg \sqrt{n} = \bigO(\lg n)$}
+
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &\lg x = \frac{\ln x}{\ln 2} \Rightarrow (\ln x)' = \frac{1}{x}\frac{d(x)}{dx} = \frac{1}{x} \\
+    &\therefore (\lg x)' = \frac{1}{\ln 2}(\ln x)' = \frac{1}{x\ln 2} \\
+    & (\lg \sqrt{n})' = \frac{1}{\sqrt{n}\ln 2}(\sqrt{n})' = \frac{1}{2\sqrt{n}\ln 2}(n^{-1/2})' = \frac{1}{2(\sqrt{n})^2\ln 2} = \frac{1}{2n\ln 2} \\
+    &\lim_{n \to\infty} \frac{\lg \sqrt{n}}{\lg n} \text{, usando L'Hospital e os limites calculados anteriormente temos} \\
+    &\lim_{n \to\infty} \frac{(\lg \sqrt{n})'}{(\lg n)'} = \lim_{n \to\infty} \frac{\frac{1}{2n\ln 2}}{\frac{1}{n\ln 2}} = \lim_{n \to\infty} \frac{n\ln 2}{2n\ln 2} = \lim_{n \to\infty} \frac{\cancelto{1}{n\ln 2}}{\cancelto{2}{2n\ln 2}} = \frac{1}{2} \\
+    &\therefore\: \lg \sqrt{n} \text{ é } \Theta(\lg n) \text{, por consequência } \lg \sqrt{n} \text{ é } \bigO(\lg n)
+\end{aligned}\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{(b) Se $f(n) = \bigO(g(n)) \text{ e } g(n) = \bigO(h(n)) \text{ então } f(n) = \bigO(h(n))$}
+
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &f(n) = \bigO(g(n)) \iff \exists \text{ constantes $c_1$ e $n_1$}: f(n) \leq c_{1}*g(n) \text{ , } \forall n \geq n_1 \\
+    &g(n) = \bigO(h(n)) \iff \exists \text{ constantes $c_2$ e $n_2$}: g(n) \leq c_{2}*h(n) \text{ , } \forall n \geq n_2 \\
+    &\text{Se temos } g(n) \leq c_{2}*h(n) \text{ multiplicando ambos os lados por $c_1$ teremos } c_{1}*g(n) \leq c_{1}*c_{2}*h(n) \\
+    &\Rightarrow f(n) \leq c_{1}*g(n) \leq c_{1}*c_{2}*h(n) \\
+    &\therefore f(n) \leq c_3*h(n) \text{ , } c_3 = c_{1}*c_{2} \text{ , } \forall n \geq n_3 \text{ , } n_3 = max\{n_1, n_2\}
+\end{aligned}\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{(c) Se $f(n) = \bigO(g(n)) \text{ e } g(n) = \Theta(h(n)) \text{ então } f(n) = \Theta(h(n))$}
+
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &f(n) = \bigO(g(n)) \iff \exists \text{ constantes $c_1$ e $n_1$}: f(n) \leq c_{1}*g(n) \text{ , } \forall n \geq n_1 \\
+    &g(n) = \Theta(h(n)) \iff \exists \text{ constantes $c_2$, $c_3$ e $n_2$}: 0 \leq c_{2}*h(n) \leq g(n) \leq c_{3}*h(n) \text{ , } \forall n \geq n_2 \\
+    &\text{Se temos } 0 \leq c_{2}*h(n) \leq g(n) \leq c_{3}*h(n) \text{ multiplicando toda a relação por $c_1$ teremos } \\
+    &0 \leq c_{1}*c_{2}*h(n) \leq c_{1}*g(n) \leq c_{1}*c_{3}*h(n) \Rightarrow f(n) \leq c_{1}*g(n) \leq c_{1}*c_{3}*h(n) \text{ , então } f(n) = \bigO(h(n)) \\
+    &\text{Ao multiplicar a relação acima teremos 3 casos possíveis para a lower-bound: } \\
+    &f(n) < c_{1}*c_{2}*g(n) \Rightarrow f(n) = o(h(n)) \\
+    &f(n) = c_{1}*c_{2}*g(n) \Rightarrow f(n) = \Theta(h(n)) \\
+    &f(n) > c_{1}*c_{2}*g(n) \Rightarrow f(n) = \omega(h(n))
+\end{aligned}\end{equation*}
+
+Não podemos afirmar com certeza qual será o resultado.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{(d) Suponha que $\lg (g(n)) > 0$ e que $f(n) > 1$ para todo n suficientemente frande. Neste caso, se $f(n) = \bigO(g(n))$ então $\lg (f(n)) = \bigO(\lg (g(n)))$}
+
+% \begin{equation*}
+%   \setlength{\jot}{10pt}
+%   \begin{aligned}
+%     &\text{Considere c uma constante inteira maior que 1, temos então: } \\
+%     &f(n) \leq c*g(n) \leq c*g(n)^2 \leq c*g(n)^3 \dots \leq c*g(n)^c \Rightarrow \lg (f(n)) \leq \lg (c*g(n)^c) = c*\lg (c*g(n))
+% \end{aligned}\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{(e) Se $f(n) = \bigO(g(n))$ então $2^{f(n)} = \bigO(2^{g(n)})$}

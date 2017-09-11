@@ -1,0 +1,83 @@
+\section*{Exercício 2}
+Para esse exercício consideraremos as definições de notação assintótica apresentadas no exercício anterior.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{(a) $n^2 + 10n + 20 = \bigO(n^2)$}
+
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &\lim_{n \to\infty} \frac{n^2 + 10n + 20}{n^2} = \lim_{n \to\infty} \frac{n^{2}(1 + \frac{10}{n} + \frac{20}{n^2})}{n^{2}} = \lim_{n \to\infty} \frac{\cancel{n^{2}}(1 + \frac{10}{n} + \frac{20}{n^2})}{\cancel{n^{2}}} = \\
+    & \lim_{n \to\infty} \left(1 + \frac{10}{n} + \frac{20}{n^2}\right) = \lim_{n \to\infty} \left(1 + \cancelto{0}{\frac{10}{n}} + \cancelto{0}{\frac{20}{n^2}}\right) = 1 \\
+    &\therefore\: n^2 + 10n + 20 n \text{ é } \Theta(n^2) \text{, por consequência } n^2 + 10n + 20 \text{ é } \bigO(n^2)
+\end{aligned}\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{(b) $\ceil*{\frac{n}{3}} = \bigO(n)$}
+
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &\ceil*{\frac{n}{3}} = \bigO(n) \iff \exists \text{ constantes c e $n_0$}: \ceil*{\frac{n}{3}} \leq c*n \text{ , } \forall n \geq n_0 \\
+    &\text{Considere $c = 3$ e $n_0 = 3$ , temos então: } \ceil*{\frac{n}{3}} \leq 3*n, \forall n \geq 3 \\
+    & n = 3 \Rightarrow \ceil*{\frac{3}{3}} = 1 \leq 3*3 = 9 \\
+    & n = 4 \Rightarrow \ceil*{\frac{4}{3}} = 2 \leq 3*4 = 12 \\
+    & n = 5 \Rightarrow \ceil*{\frac{5}{3}} = 2 \leq 3*5 = 15 \\
+    & n = 6 \Rightarrow \ceil*{\frac{6}{3}} = 2 \leq 3*6 = 18 \\
+    \vdots
+\end{aligned}\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{(c) $\lg n = \bigO(\log_{10} n)$}
+
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &\lg n = \bigO(\log_{10} n) \iff \exists \text{ constantes c e $n_0$}: \lg n \leq c*\log_{10} n \text{ , } \forall n \geq n_0 \\
+    &\text{Considere $c = 10$ e $n_0 = 16$ , temos então: } \lg n \leq 10*\log_{10} n, \forall n \geq 16 \\
+    & n = 16 \Rightarrow \lg 16 = 4 \leq 10*\log_{10} 16 \approx 10*1.5 = 15 \\
+\end{aligned}\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{(d) $n = \bigO(2^{n})$}
+
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &n = \bigO(2^{n}) \iff \exists \text{ constantes c e $n_0$}: n \leq c*2^{n} \text{ , } \forall n \geq n_0 \\
+    &\text{Considere $c = 1$ e $n_0 = 1$ , temos então: } n \leq 2^{n}, \forall n \geq 1 \\
+    & n = 1 \Rightarrow 1 \leq 2^{1} = 2 \\
+    & n = 2 \Rightarrow 2 \leq 2^{2} = 4 \\
+    & n = 10 \Rightarrow 10 \leq 2^{10} = 1024 \\
+    \vdots
+\end{aligned}\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{(e) $\frac{n}{1000} \text{ não é } \bigO(1)$}
+
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &\lim_{n \to\infty} \frac{\frac{n}{1000}}{1} = \lim_{n \to\infty} \frac{n}{1000} = \infty \\
+    &\therefore\: \frac{n}{1000} \text{ não é } \bigO(1), \text{ na verdade } \frac{n}{1000} = \Omega(1)
+\end{aligned}\end{equation*}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection*{(f) $\frac{n^2}{2} \text{ não é } \bigO(n)$}
+
+\begin{equation*}
+  \setlength{\jot}{10pt}
+  \begin{aligned}
+    &\lim_{n \to\infty} \frac{\frac{n^2}{2}}{n} = \lim_{n \to\infty} \frac{n^2}{2n} = \lim_{n \to\infty} \frac{\cancelto{n}{n^2}}{\cancelto{2}{2n}}  = \lim_{n \to\infty} \frac{n}{2} = \infty \\
+    &\therefore\: \frac{n^2}{2} \text{ não é } \bigO(n), \text{ na verdade } \frac{n^2}{2} = \Omega(n)
+\end{aligned}\end{equation*}
